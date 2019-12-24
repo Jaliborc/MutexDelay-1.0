@@ -16,7 +16,7 @@ GNU General Public License for more details.
 This file is part of MutexDelay.
 --]]
 
-local Lib = LibStub:NewLibrary('MutexDelay-1.0', 1)
+local Lib = LibStub:NewLibrary('MutexDelay-1.0', 2)
 if Lib then
   Lib.timers = Lib.timers or {}
 else return end
@@ -30,7 +30,11 @@ function Lib:Delay(time, method, ...)
 		C_Timer.After(time, function()
       local args = timers[method]
       timers[method] = nil
-			self[method](self, unpack(args))
+
+      local func = self[method]
+      if type(func) == 'function' then
+			  func(self, unpack(args))
+      end
 		end)
 
     timers[method] = {...}
@@ -40,7 +44,8 @@ function Lib:Delay(time, method, ...)
 end
 
 function Lib:Delaying(method)
-	return Lib.timers[self] and Lib.timers[self][method]
+  local timers = Lib.timers[self]
+	return timers and timers[method]
 end
 
 function Lib:Embed(object)
