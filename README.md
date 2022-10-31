@@ -1,5 +1,5 @@
 # MutexDelay-1.0 :watch:
-Straightforward library that allows to easily delay a method call, and to avoid multiple sources making unnecessary calls to the same function for efficiency. Hence, a mutex and a delay.
+Straightforward library that allows to easily delay a method call, and to avoid multiple sources making unnecessary multiple calls to the same function for efficiency. Hence, behaves like a mutex over delayed code.
 
 ### API Overview
 |Name|Description|
