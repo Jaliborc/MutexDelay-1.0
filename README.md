@@ -11,3 +11,6 @@ Straightforward library that allows to easily delay a method call, and to avoid 
 | :Embed(object) | Adds the library methods to your object. |
 | :Delay(time, method [,args]) | Calls the given `method` after a certain `time` with the given `args`. Locks the `method` from further calls until complete.  |
 | :Delaying(method) | Whether the `method` is currently locked from further calls. |
+
+### :warning: Reminder!
+If you use this library, please list it as one of your dependencies in the CurseForge admin system. It's a big help! :+1:
